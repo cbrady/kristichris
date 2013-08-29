@@ -1,2 +1,35 @@
-<h1>Pictures#new</h1>
-<p>Find me in app/views/pictures/new.html.erb</p>
+<%= form_for @pic, url: pictures_path, html: { multipart: true, class: 'form-horizontal' } do |f| %>
+  <% if @pic.errors.any? %>
+    <div class="alert alert-error">
+      <% @pic.errors.full_messages.each do |msg| %>
+        <p><%= msg %></p>
+      <% end %>
+    </div>
+  <% end %>
+  <fieldset>
+    <legend>Add a Picture!</legend>
+    <div class="control-group">
+      <%= f.label :image, 'Select your file.', class: 'control-label' %>
+      <div class="controls">
+        <%= f.file_field :image %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :name, class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :name %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :caption, class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :caption %>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <button type="submit" class="btn btn-primary">Add</button>
+      </div>
+    </div>
+  </fieldset>
+<% end %>

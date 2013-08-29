@@ -2,13 +2,22 @@
 <html>
 <head>
   <title>Slideshow</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js","underscore.js","backbone.js" %>
+  <%= stylesheet_link_tag "bootstrap.min", "bootstrap-responsive.min", media: "all" %>
+  <%= javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js","underscore","backbone", "bootstrap.min" %>
+  <%= yield :included_js %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="/">Kristi and Chris' Wedding</a>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <%= yield %>
+</div>
 
 </body>
 </html>

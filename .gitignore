@@ -12,3 +12,6 @@
 /tmp
 
 config/database.yml
+
+public/system
+public/.DS_Store
